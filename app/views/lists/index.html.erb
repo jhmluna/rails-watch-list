@@ -1,0 +1,9 @@
+<%= link_to 'Create a movie list', new_list_path, class: "btn btn-outline-secondary mb-3" %>
+
+<ul class="list-group list-group-flush mt-3">
+  <% @lists.each do |list| %>
+    <li class="list-group-item">
+      <h5><%= link_to list.name, list_path(list)%></h5>
+    </li>
+  <% end %>
+</ul>

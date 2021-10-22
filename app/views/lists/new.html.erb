@@ -1,0 +1,9 @@
+<div class="container col-lg-8">
+  <h1>Create new list</h1>
+  <%= simple_form_for(@list) do |f| %>
+    <%= f.input :name %>
+    <div class="d-flex justify-content-between">
+      <%= f.submit class: 'btn btn-primary' %>
+      <%= link_to 'Back to lists', lists_path, class: "btn btn-outline-secondary" %>
+    </div>  <% end %>
+</div>
