@@ -1,3 +1,6 @@
+# frozen-string-literal: true
+
+# Lista all, create a new and show individual list.
 class ListsController < ApplicationController
   def index
     @lists = List.all

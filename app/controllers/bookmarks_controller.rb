@@ -1,3 +1,6 @@
+# frozen-string-literal: true
+
+# Make the connection between movie and list
 class BookmarksController < ApplicationController
   before_action :find_list
   def new
@@ -8,7 +11,7 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.list = @list
     if @bookmark.save
-      redirect_to list_path(@bookmark)
+      redirect_to list_path(@list)
     else
       render :new
     end

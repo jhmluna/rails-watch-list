@@ -1,9 +1,23 @@
-<%= link_to 'Create a movie list', new_list_path, class: "btn btn-outline-secondary mb-3" %>
+<%# Banner %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/evlkOfkQ5rE);">
+  <div class="container">
+    <h1>Save any kind of movies</h1>
+    <p>Classic</p>
+  </div>
+</div>
 
-<ul class="list-group list-group-flush mt-3">
-  <% @lists.each do |list| %>
-    <li class="list-group-item">
-      <h5><%= link_to list.name, list_path(list)%></h5>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+
+  <div class="row px-3 my-5 d-flex justify-content-between">
+    <h2>My lists</h2>
+    <%= link_to 'Create a movie list', new_list_path, class: "btn btn-flat" %>
+  </div>
+
+  <div class="cards">
+    <% @lists.each do |list| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.image_url %>)">
+        <%= link_to list.name, list_path(list), class: "my-card" %>
+      </div>
+    <% end %>
+  </div>
+</div>
