@@ -2,6 +2,7 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
+  position: relative;
 }
 
 .banner h1 {
@@ -19,3 +20,15 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   text-align: center;
 }
+
+.movie-tag {
+  color: white;
+  padding: 6px 16px;
+  border-radius: 4px;
+  background: #fcbf49;
+  transition: background 0.3s ease;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+

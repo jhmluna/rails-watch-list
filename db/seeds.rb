@@ -41,7 +41,7 @@ repos.each do |movie|
   title = movie['title']
   overview = movie['overview']
   poster_url = "https://image.tmdb.org/t/p/original#{movie['poster_path']}"
-  rating = movie['rating']
+  rating = movie['vote_average']
   seed_movie(title, overview, poster_url, rating)
   puts "Seed movie #{title}"
 end

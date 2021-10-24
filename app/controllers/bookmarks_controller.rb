@@ -2,7 +2,8 @@
 
 # Make the connection between movie and list
 class BookmarksController < ApplicationController
-  before_action :find_list
+  before_action :find_bookmark, only: :destroy
+  before_action :find_list, only: %i[new create]
   def new
     @bookmark = Bookmark.new
   end
@@ -17,11 +18,20 @@ class BookmarksController < ApplicationController
     end
   end
 
+  def destroy
+    @bookmark.destroy
+    redirect_to list_path(@bookmark.list)
+  end
+
   private
 
   def find_list
     # in our routes for bookmark it is :list_id
     @list = List.find(params[:list_id])
+  end
+
+  def find_bookmark
+    @bookmark = Bookmark.find(params[:id])
   end
 
   def bookmark_params
