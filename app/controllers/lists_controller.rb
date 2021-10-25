@@ -13,7 +13,7 @@ class ListsController < ApplicationController
 
   def create
     name = list_params['name'].split(/ |_/).map(&:capitalize).join(' ')
-    @list = List.new({ name: name, image_url: list_params['image_url'] })
+    @list = List.new({ name: name, photo: list_params['photo'] })
     if @list.save
       redirect_to lists_path
     else
@@ -35,6 +35,6 @@ class ListsController < ApplicationController
   end
 
   def list_params
-    params.require(:list).permit(:name, :image_url)
+    params.require(:list).permit(:name, :photo)
   end
 end
