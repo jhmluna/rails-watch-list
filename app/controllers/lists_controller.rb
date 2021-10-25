@@ -26,7 +26,9 @@ class ListsController < ApplicationController
     redirect_to lists_path
   end
 
-  def show; end
+  def show
+    @review = Review.new
+  end
 
   private
 
