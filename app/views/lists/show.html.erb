@@ -35,30 +35,30 @@
 
   <hr>
 
-  <div class="container">
-  <div class="row">
-    <div class="col">
-      <h4>Reviews</h4>
-      <ul class="list-group list-group-flush mb-4">
-        <% @list.reviews.each do |review| %>
-          <li class="list-group-item">
-            <div class="d-flex justify-content-between">
-              <span><%= review.content %></span>
-              <span><%= '⭐' * review.rating%></span>
-            </div>
-          </li>
+  <div class="container px-5">
+    <div class="row row-cols-2">
+      <div class="col">
+        <h4>Reviews</h4>
+        <ul class="list-group list-group-flush mb-4">
+          <% @list.reviews.each do |review| %>
+            <li class="list-group-item">
+                <% review.rating.times do %>
+                  <span class="fa fa-star checked"></span>
+                <% end %>
+                <p class="mb-0"><small><strong><%= review.content %><strong></small></p>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="col">
+        <h5>Add your review</h5>
+        <%= simple_form_for [@list, @review] do |f| %>
+          <%= f.input :content, label: 'Comment' %>
+          <%= f.input :rating, collection: 1..5 %>
+          <!-- adds bootstrap button  -->
+          <%= f.submit class: 'btn btn-flat' %>
         <% end %>
-      </ul>
-    </div>
-    <div class="col">
-      <h5>Add your review</h5>
-      <%= simple_form_for [@list, @review] do |f| %>
-        <%= f.input :content, label: 'Comment' %>
-        <%= f.input :rating, collection: 1..5 %>
-        <!-- adds bootstrap button  -->
-        <%= f.submit class: 'btn btn-flat' %>
-      <% end %>
+      </div>
     </div>
   </div>
-  <div class="row">
 </div>

@@ -17,3 +17,8 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 import 'bootstrap';
+import { initTyped } from './plugins/init_typedjs';
+
+document.addEventListener('turbolinks:load', () => {
+  initTyped();
+});
