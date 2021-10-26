@@ -39,6 +39,9 @@
     <div class="row row-cols-2">
       <div class="col">
         <h4>Reviews</h4>
+        <% if @list.reviews.empty? %>
+          <small><em class="text-muted">Be the first one to review this list</em></small>
+        <% end %>
         <ul class="list-group list-group-flush mb-4">
           <% @list.reviews.each do |review| %>
             <li class="list-group-item">
