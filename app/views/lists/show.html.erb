@@ -4,7 +4,7 @@
   <h1><%= @list.name %></h1>
 </div>
 
-<div class="container">
+<div class="container mb-5">
   <div class="d-flex justify-content-between my-4">
     <span class="mb-2 d-block"><small><em class="text-muted"><%= "You haven't saved any movies yet!" if @list.movies.empty? %></em></small></span>
     <div>
@@ -54,13 +54,17 @@
         </ul>
       </div>
       <div class="col">
-        <h5>Add your review</h5>
-        <%= simple_form_for [@list, @review] do |f| %>
-          <%= f.input :content, label: 'Comment' %>
-          <%= f.input :rating, collection: 1..5 %>
-          <!-- adds bootstrap button  -->
-          <%= f.submit class: 'btn btn-flat' %>
-        <% end %>
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Add your review</h4>
+            <%= simple_form_for [@list, @review] do |f| %>
+              <%= f.input :content, label: 'Comment', label_html: { class: "font-weight-normal" } %>
+              <%= f.input :rating, collection: 1..5, label_html: { class: "font-weight-normal" } %>
+              <!-- adds bootstrap button  -->
+              <%= f.submit class: 'btn btn-flat' %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
