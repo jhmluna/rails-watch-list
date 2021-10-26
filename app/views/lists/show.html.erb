@@ -58,7 +58,7 @@
           <div class="card-body">
             <h4 class="card-title">Add your review</h4>
             <%= simple_form_for [@list, @review] do |f| %>
-              <%= f.input :content, label: 'Comment', label_html: { class: "font-weight-normal" } %>
+              <%= f.input :content, label: 'Comment', placeholder: 'Add your review here...', label_html: { class: "font-weight-normal" } %>
               <%= f.input :rating, collection: 1..5, label_html: { class: "font-weight-normal" } %>
               <!-- adds bootstrap button  -->
               <%= f.submit class: 'btn btn-flat' %>
